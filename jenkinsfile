@@ -3,7 +3,6 @@ def branch = 'master'
 def repo = "https://github.com/cvemula1/K8s-Docker-Jenkins-CICD.git"
 {
         stage ("build") {
-                git repo
                 sh "mvn clean install".execute()
 				sh "cd account-service".execute()
 				sh "docker build -t account-service .".execute()

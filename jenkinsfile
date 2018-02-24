@@ -1,8 +1,6 @@
-#!/usr/bin/env groovy
-def branch = 'master'
-def repo = "https://github.com/cvemula1/K8s-Docker-Jenkins-CICD.git"
-{
-        stage ("build") {
+node {
+        stage 'build'
+	git url:"https://github.com/cvemula1/K8s-Docker-Jenkins-CICD.git"
                 sh "mvn clean install".execute()
 				sh "cd account-service".execute()
 				sh "docker build -t account-service .".execute()

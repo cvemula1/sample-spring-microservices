@@ -5,6 +5,8 @@ node ('master') {
 				sh "pwd"
 				sh "ls"
 				sh "cd account-service"
+				sh "pwd"
+				sh "ls"
 				sh "docker build -t account-service ."
 				sh "docker tag account-service:latest rahulnallari/microservice-springboot:account-service"
 				sh "docker push rahulnallari/microservice-springboot:account-service"

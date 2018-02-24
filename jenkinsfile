@@ -2,7 +2,7 @@ node ('master') {
         stage 'build'
 	git url:"https://github.com/cvemula1/sample-spring-microservices.git"
                 sh "mvn clean install"
-				sh " cd dir account-service"
+				sh "cd account-service && command"
 				sh "docker build -t account-service ."
 				sh "docker tag account-service:latest rahulnallari/microservice-springboot:account-service"
 				sh "docker push rahulnallari/microservice-springboot:account-service"

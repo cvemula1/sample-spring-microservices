@@ -9,7 +9,6 @@ def repo = "https://github.com/cvemula1/K8s-Docker-Jenkins-CICD.git"
 				sh " cd account-service"
 				sh "docker build -t account-service ."
 				sh "docker tag account-service:latest rahulnallari/microservice-springboot:account-service"
-				#sh "docker tag helloworld:latest <AwsAccountid>.dkr.ecr.us-west-2.amazonaws.com/helloworld:latest"
 				sh "docker push rahulnallari/microservice-springboot:account-service"
 				sh " cd ../customer-service
 				sh " docker build -t customer-service .

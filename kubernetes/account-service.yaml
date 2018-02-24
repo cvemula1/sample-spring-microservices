@@ -6,40 +6,9 @@ metadata:
     app: account-service
     service: account-service    ###ServiceName
     env: nonprod
-spec:
-  replicas: 2
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
-  template:
-    metadata:
-      name: account-service
-      annotations:
-        imagelabel: account-service
-    spec:
-      affinity:
-        podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 5
-              podAffinityTerm:
-                namespaces:
-                  - account-service
-                topologyKey: failure-domain.beta.kubernetes.io/zone
-                labelSelector:
-                  matchLabels:
-                    app: account-service
-                    service: account-service     # K8s ServiceName
-                    env: nonprod
-      containers:
-        - envFrom:
-            - configMapRef:
-                name: account-service
-            - secretRef:
-                name: account-service
+
+    containers:
           image: rahulnallari/microservice-springboot:account-service      #ECS Docker Image repo link
-##above image is based on your ECS generated
           imagePullPolicy: Always
           livenessProbe:
             tcpSocket:

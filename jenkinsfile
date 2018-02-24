@@ -28,7 +28,13 @@ node ('master') {
 				sh "docker push rahulnallari/microservice-springboot:zipkin-service" }
             }
 	    stage 'deploy'{
-	    	sh "
+	    	dir ('kubernetes'){
+		sh "kubectl apply -f account-service.yaml"
+		sh "kubectl apply -f customer-service.yaml"
+		sh "kubectl apply -f gateway-service.yaml"
+		sh "kubectl apply -f zipkin-service.yaml"
+	
+		}
 	    
 	    }
 	    

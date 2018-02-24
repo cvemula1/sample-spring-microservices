@@ -1,5 +1,4 @@
 node ('master') {
-        stage 'build' {
 		git url:"https://github.com/cvemula1/sample-spring-microservices.git"
                 sh "mvn clean install"
 				dir ('account-service'){
@@ -32,6 +31,4 @@ node ('master') {
 				sh "kubectl apply -f customer-service.yaml"
 				sh "kubectl apply -f gateway-service.yaml"
 				sh "kubectl apply -f zipkin-service.yaml" }
-	    
-			}
 		}

@@ -10,5 +10,12 @@ node ('master') {
 				sh "docker build -t customer-service ."
 				sh "docker tag customer-service:latest rahulnallari/microservice-springboot:customer-service" }
 				dir ('discovery-service'){
+				sh "docker build -t discovery-service ."
 				sh "docker tag discovery-service:latest rahulnallari/microservice-springboot:discovery-service" }
+				dir ('gateway-service'){
+				sh "docker build -t gateway-service ."
+				sh "docker tag gateway-service:latest rahulnallari/microservice-springboot:gateway-service" }
+				dir ('zipkin-service'){
+				sh "docker build -t zipkin-service ."
+				sh "docker tag zipkin-service:latest rahulnallari/microservice-springboot:zipkin-service" }
             }

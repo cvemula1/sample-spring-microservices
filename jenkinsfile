@@ -1,5 +1,5 @@
 node ('master') {
-        stage 'build'
+        stage 'build' {
 	git url:"https://github.com/cvemula1/sample-spring-microservices.git"
                 sh "mvn clean install"
 				dir ('account-service'){
@@ -27,3 +27,10 @@ node ('master') {
 				sh "docker tag zipkin-service:latest rahulnallari/microservice-springboot:zipkin-service" 
 				sh "docker push rahulnallari/microservice-springboot:zipkin-service" }
             }
+	    stage 'deploy'{
+	    	sh "
+	    
+	    }
+	    
+	}
+	    

@@ -2,10 +2,9 @@
 def branch = 'master'
 def repo = "https://github.com/cvemula1/K8s-Docker-Jenkins-CICD.git"
 {
-    node('default') {
         stage ("build") {
                 git repo
-                sh "mvn clean install"
+                sh "mvn clean install".execute()
 				sh "cd account-service".execute()
 				sh "docker build -t account-service .".execute()
 				sh "docker tag account-service:latest rahulnallari/microservice-springboot:account-service".execute()
@@ -16,5 +15,4 @@ def repo = "https://github.com/cvemula1/K8s-Docker-Jenkins-CICD.git"
 				sh "cd ../discovery-service".execute()
 				sh "docker tag discovery-service:latest rahulnallari/microservice-springboot:discovery-service".execute()
             }
-        }
 }

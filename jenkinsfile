@@ -12,4 +12,3 @@ node {
 				sh "cd ../discovery-service".execute()
 				sh "docker tag discovery-service:latest rahulnallari/microservice-springboot:discovery-service".execute()
             }
-}

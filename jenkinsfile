@@ -6,9 +6,9 @@ node ('master') {
 				sh "docker build -t account-service ." 
 				sh "docker tag account-service:latest rahulnallari/microservice-springboot:account-service"
 				sh "docker push rahulnallari/microservice-springboot:account-service" }
-				sh "cd dir ../customer-service"
+				dir ('customer-service'){
 				sh "docker build -t customer-service ."
-				sh "docker tag customer-service:latest rahulnallari/microservice-springboot:customer-service"
-				sh "cd ../discovery-service"
-				sh "docker tag discovery-service:latest rahulnallari/microservice-springboot:discovery-service"
+				sh "docker tag customer-service:latest rahulnallari/microservice-springboot:customer-service" }
+				dir ('discovery-service'){
+				sh "docker tag discovery-service:latest rahulnallari/microservice-springboot:discovery-service" }
             }

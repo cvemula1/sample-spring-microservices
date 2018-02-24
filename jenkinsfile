@@ -4,7 +4,7 @@ node ('master') {
                 sh "mvn clean install"
 				sh "pwd"
 				sh "ls"
-				sh "cd microservices-pipeline/account-service"
+				sh "cd microservices-pipeline/account-service/"
 				sh "docker build -t account-service ."
 				sh "docker tag account-service:latest rahulnallari/microservice-springboot:account-service"
 				sh "docker push rahulnallari/microservice-springboot:account-service"
